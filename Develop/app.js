@@ -37,23 +37,23 @@ const employeeInfor = [
     }
 ];
 
-// const promptManger = () => {
-//     let newPrompt = [];
-//     console.log (
-//         `
-//           ----------------- 
-//           Add a Team Manger
-//           -----------------
-//         `);
-//         newPrompt = employeeInfor.concat({
-//             type: "input",
-//             name: "officeNumber",
-//             message: "Please enter office number",
+const promptManger = () => {
+    let newPrompt = [];
+    console.log (
+        `
+          ----------------- 
+          Add a Team Manger
+          -----------------
+        `);
+        newPrompt = employeeInfor.concat({
+            type: "input",
+            name: "officeNumber",
+            message: "Please enter office number",
 
-//         })
-//         return newPrompt;
+        })
+        return newPrompt;
     
-// };
+};
 const promptEngineer = () => {
     let newPrompt = [];
     console.log (
@@ -78,7 +78,7 @@ const selectNewTeamMember = (employees) => {
     type: "list",
     name: "role",
     message: "Which postion are you adding?",
-    choices: [Manager, Engineer, Intern]
+    choices: [Engineer, Intern, Manager]
         }
     // ]).then(({role}) => {
     //     if(role === 'manager'){
@@ -91,12 +91,18 @@ const selectNewTeamMember = (employees) => {
     //             return selectNewTeamMember(employees)});
     ]).then(({role}) => {
         if (role === 'engineer'){
-            return promptEngineer(employees);
-        }else
+          
         return inquirer.prompt(promptEngineer())
-            .then (({name, id, email,github}) => {
-            employees.push(new Engineer (name, id, email, email,github));
-            return selectNewTeamMember(employees)});
+            // .then (({name, id, email,github}) => {
+            // employees.push(new Engineer (name, id, email, email,github));
+            // return selectNewTeamMember(employees)});
+            }
+            else if (role === "manager") return inquirer.prompt(promptManger());
+            
+           
+            
+
+            
         
 
         
