@@ -43,8 +43,8 @@ const promptManger = (employees) => {
         -------------------
         `);
         newPrompt = employeeInfor.concat({
-            type: "input"
-            name: "officeNumber";
+            type: "input",
+            name: "officeNumber",
             message: "Please enter office number";
 
         })
