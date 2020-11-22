@@ -10,6 +10,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const NumberPrompt = require("inquirer/lib/prompts/number");
 
 
 const role = 'Manager';
@@ -33,7 +34,23 @@ const employeeInfor = [
         message: "Please enter employee email address: ",
 
     }
-]
+];
+
+const promptManger = (employees) => {
+    let newPrompt = [];
+    console.log (
+        `Add a Team Manger
+        -------------------
+        `);
+        newPrompt = employeeInfor.concat({
+            type: "input"
+            name: "officeNumber";
+            message: "Please enter office number";
+
+        })
+        return newPrompt();
+    
+};
 
 
 
