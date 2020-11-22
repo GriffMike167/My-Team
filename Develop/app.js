@@ -18,7 +18,7 @@ const role = 'Manager';
 const employees = [];
 
 
-const promptEmployeeInfor = [
+const employeeInfor = [
     {
         type: "input",
         name: "name",
@@ -37,11 +37,13 @@ const promptEmployeeInfor = [
     }
 ];
 
-const promptManger = (employees) => {
+const promptManger = () => {
     let newPrompt = [];
     console.log (
-        `Add a Team Manger
-        -------------------
+        `
+          ----------------- 
+          Add a Team Manger
+          -----------------
         `);
         newPrompt = employeeInfor.concat({
             type: "input",
@@ -49,7 +51,7 @@ const promptManger = (employees) => {
             message: "Please enter office number",
 
         })
-        return promptManager(employees);
+        return newPrompt();
     
 };
 
@@ -65,16 +67,18 @@ const selectNewTeamMember = (employees) => {
         if(role === 'manager'){
             return promptManger(employees);
         
-            }
+            } else
+            return inquirer.prompt(promptManger())
+                .then (({name, id, officeNumber}) => {
+                employees.push(new Manager(name, id, email, officeNumber));
+                return selectNewTeamMember(employees)});
         })
+        
 
         
 }; return selectNewTeamMember();
 
-return inquirer.prompt(promptManger())
-    .then (({name, id, officeNumber}) => {
-        employees.push(new Manager(name, id, email, officeNumber));
-        return selectNewTeamMember(employees)});
+
     
 
 
