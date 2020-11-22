@@ -11,13 +11,14 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 const NumberPrompt = require("inquirer/lib/prompts/number");
+const { type } = require("os");
 
 
 const role = 'Manager';
 const employees = [];
 
 
-const employeeInfor = [
+const promptEmployeeInfor = [
     {
         type: "input",
         name: "name",
@@ -45,12 +46,36 @@ const promptManger = (employees) => {
         newPrompt = employeeInfor.concat({
             type: "input",
             name: "officeNumber",
-            message: "Please enter office number";
+            message: "Please enter office number",
 
         })
-        return newPrompt();
+        return promptManager(employees);
     
 };
+
+const selectNewTeamMember = (employees) => {
+    return inquirer.prompt([
+        {
+    type: "list",
+    name: "role",
+    message: "Which postion are you adding?",
+    choices: [Manager, Engineer, Intern]
+        }
+    ]).then(({role}) => {
+        if(role === 'manager'){
+            return promptManger(employees);
+        
+            }
+        })
+
+        
+}; return selectNewTeamMember();
+
+return inquirer.prompt(promptManger())
+    .then (({name, id, officeNumber}) => {
+        employees.push(new Manager(name, id, email, officeNumber));
+        return selectNewTeamMember(employees)});
+    
 
 
 
