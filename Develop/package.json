@@ -22,7 +22,7 @@
   "homepage": "https://github.com/stevetrilogy/unit10hw#readme",
   "dependencies": {
     "inquirer": "^6.3.1",
-    "require": "^2.4.20"
+    "require": "^0.4.4"
   },
   "devDependencies": {
     "jest": "^24.8.0"
