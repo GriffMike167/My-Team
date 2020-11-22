@@ -37,24 +37,24 @@ const employeeInfor = [
     }
 ];
 
-const promptManger = () => {
-    let newPrompt = [];
-    console.log (
-        `
-          ----------------- 
-          Add a Team Manger
-          -----------------
-        `);
-        newPrompt = employeeInfor.concat({
-            type: "input",
-            name: "officeNumber",
-            message: "Please enter office number",
+// const promptManger = () => {
+//     let newPrompt = [];
+//     console.log (
+//         `
+//           ----------------- 
+//           Add a Team Manger
+//           -----------------
+//         `);
+//         newPrompt = employeeInfor.concat({
+//             type: "input",
+//             name: "officeNumber",
+//             message: "Please enter office number",
 
-        })
-        return newPrompt;
+//         })
+//         return newPrompt;
     
-};
-const promptEngineeer = () => {
+// };
+const promptEngineer = () => {
     let newPrompt = [];
     console.log (
         `
@@ -80,16 +80,16 @@ const selectNewTeamMember = (employees) => {
     message: "Which postion are you adding?",
     choices: [Manager, Engineer, Intern]
         }
-    ]).then(({role}) => {
-        if(role === 'manager'){
-            return promptManger(employees);
+    // ]).then(({role}) => {
+    //     if(role === 'manager'){
+    //         return promptManger(employees);
         
-            } else
-            return inquirer.prompt(promptManger())
-                .then (({name, id, officeNumber}) => {
-                employees.push(new Manager(name, id, email, officeNumber));
-                return selectNewTeamMember(employees)});
-    }).then(({role}) => {
+    //         } else
+    //         return inquirer.prompt(promptManger())
+    //             .then (({name, id, officeNumber}) => {
+    //             employees.push(new Manager(name, id, email, officeNumber));
+    //             return selectNewTeamMember(employees)});
+    ]).then(({role}) => {
         if (role === 'engineer'){
             return promptEngineer(employees);
         }else
@@ -100,8 +100,8 @@ const selectNewTeamMember = (employees) => {
         
 
         
-}; 
-// return selectNewTeamMember();
+})}
+return selectNewTeamMember();
 
 
     
