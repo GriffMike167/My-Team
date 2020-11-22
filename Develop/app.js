@@ -54,6 +54,23 @@ const promptManger = () => {
         return newPrompt;
     
 };
+const promptEngineeer = () => {
+    let newPrompt = [];
+    console.log (
+        `
+          -------------------- 
+          Add a Team Engineeer
+          --------------------
+        `);
+        newPrompt = employeeInfor.concat({
+            type: "input",
+            name: "github",
+            message: "Please enter Github",
+
+        })
+        return newPrompt;
+    
+};
 
 const selectNewTeamMember = (employees) => {
     return inquirer.prompt([
@@ -72,11 +89,19 @@ const selectNewTeamMember = (employees) => {
                 .then (({name, id, officeNumber}) => {
                 employees.push(new Manager(name, id, email, officeNumber));
                 return selectNewTeamMember(employees)});
-        })
+    }).then(({role}) => {
+        if (role === 'engineer'){
+            return promptEngineer(employees);
+        }else
+        return inquirer.prompt(promptEngineer())
+            .then (({name, id, email,github}) => {
+            employees.push(new Engineer (name, id, email, email,github));
+            return selectNewTeamMember(employees)});
         
 
         
-}; return selectNewTeamMember();
+}; 
+// return selectNewTeamMember();
 
 
     
