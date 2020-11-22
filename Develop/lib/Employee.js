@@ -20,7 +20,7 @@ class Employee {
     
 }
 
- getRole(){
+ getRole(employee){
     return 'Employee';
 }
 }
