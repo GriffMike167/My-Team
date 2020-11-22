@@ -1,4 +1,3 @@
-const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -51,14 +50,15 @@ const promptManager = () => {
             message: "Please enter office number",
 
         })
-        .then (({name, id, officeNumber}) => {
+        return inquirer.prompt(newPrompt)
+        .then (({name, id, email, officeNumber}) => {
             employees.push(new Manager(name, id, email, officeNumber));
             return selectNewTeamMember(employees)});
         
     
 };
 
-const Intern = () => {
+const promptIntern = () => {
     let newPrompt = [];
     console.log (
         `
@@ -72,7 +72,8 @@ const Intern = () => {
             message: "Please enter school name",
 
         })
-        .then (({name, id, school}) => {
+        return inquirer.prompt(newPrompt)
+        .then (({name, id, email, school}) => {
             employees.push(new Intern(name, id, email, school));
             return selectNewTeamMember(employees)});
 
@@ -90,7 +91,8 @@ const promptEngineer = () => {
             name: "github",
             message: "Please enter Github",
 
-        })
+        });
+        return inquirer.prompt(newPrompt)
         .then (({name, id, email,github}) => {
             employees.push(new Engineer (name, id, email, email,github));
             return selectNewTeamMember(employees)});
