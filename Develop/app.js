@@ -18,20 +18,20 @@ const employees = [];
 
 const employeeInfor = [
     {
-        type: "input";
-        name: "name";
-        message: "What is employess name?";
+        type: "input",
+        name: "name",
+        message: "What is employess name?",
     },
     {
-        type: "input";
-        name: "id";
-        message: "Please enter employee id number:";
+        type: "input",
+        name: "id",
+        message: "Please enter employee id number:",
     },
     {
-        type: "input";
-        name: "email";
-        message: "Please enter employee email address: ";
-        
+        type: "input",
+        name: "email",
+        message: "Please enter employee email address: ",
+
     }
 ]
 
@@ -42,7 +42,7 @@ const employeeInfor = [
 // and to create objects for each team member (using the correct classes as blueprints!)
 
 // After the user has input all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
+// above) and pass in an array containing all employee objects, the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
 
 // After you have your html, you're now ready to create an HTML file using the HTML
