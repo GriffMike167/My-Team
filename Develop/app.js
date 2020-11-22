@@ -37,13 +37,13 @@ const employeeInfor = [
     }
 ];
 
-const promptManger = () => {
+const promptManager = () => {
     let newPrompt = [];
     console.log (
         `
-          ----------------- 
-          Add a Team Manger
-          -----------------
+          ------------------ 
+          Add a Team Manager
+          ------------------
         `);
         newPrompt = employeeInfor.concat({
             type: "input",
@@ -51,8 +51,31 @@ const promptManger = () => {
             message: "Please enter office number",
 
         })
-        return newPrompt;
+        .then (({name, id, officeNumber}) => {
+            employees.push(new Manager(name, id, email, officeNumber));
+            return selectNewTeamMember(employees)});
+        
     
+};
+
+const Intern = () => {
+    let newPrompt = [];
+    console.log (
+        `
+          ----------------- 
+          Add a Team Intern
+          -----------------
+        `);
+        newPrompt = employeeInfor.concat({
+            type: "input",
+            name: "school",
+            message: "Please enter school name",
+
+        })
+        .then (({name, id, school}) => {
+            employees.push(new Intern(name, id, email, school));
+            return selectNewTeamMember(employees)});
+
 };
 const promptEngineer = () => {
     let newPrompt = [];
@@ -68,7 +91,10 @@ const promptEngineer = () => {
             message: "Please enter Github",
 
         })
-        return newPrompt;
+        .then (({name, id, email,github}) => {
+            employees.push(new Engineer (name, id, email, email,github));
+            return selectNewTeamMember(employees)});
+        
     
 };
 
@@ -79,34 +105,13 @@ const selectNewTeamMember = (employees) => {
     name: "role",
     message: "Which postion are you adding?",
     choices: [Engineer, Intern, Manager]
-        }
-    // ]).then(({role}) => {
-    //     if(role === 'manager'){
-    //         return promptManger(employees);
-        
-    //         } else
-    //         return inquirer.prompt(promptManger())
-    //             .then (({name, id, officeNumber}) => {
-    //             employees.push(new Manager(name, id, email, officeNumber));
-    //             return selectNewTeamMember(employees)});
+        }      
     ]).then(({role}) => {
-        if (role === 'engineer'){
-          
-        return inquirer.prompt(promptEngineer())
-            // .then (({name, id, email,github}) => {
-            // employees.push(new Engineer (name, id, email, email,github));
-            // return selectNewTeamMember(employees)});
-            }
-            else if (role === "manager") return inquirer.prompt(promptManger());
-            
-           
-            
-
-            
-        
-
-        
-})}
+        if (role === 'Engineer'){return promptEngineer(employees);}
+            else if (role === "Intern") {return promptIntern(employees);}
+            else if (role === "Manager"){return promptManager(employees);}
+            else {return employees;}
+    })}
 return selectNewTeamMember();
 
 
