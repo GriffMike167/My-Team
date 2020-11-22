@@ -51,7 +51,7 @@ const promptManger = () => {
             message: "Please enter office number",
 
         })
-        return newPrompt();
+        return newPrompt;
     
 };
 
