@@ -106,7 +106,7 @@ const selectNewTeamMember = (employees) => {
     type: "list",
     name: "role",
     message: "Which postion are you adding?",
-    choices: [Engineer, Intern, Manager]
+    choices: [Engineer, Intern, Manager, 'None']
         }      
     ]).then(({role}) => {
         if (role === 'Engineer'){return promptEngineer(employees);}
