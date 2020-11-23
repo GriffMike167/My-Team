@@ -8,13 +8,13 @@
     
     
 ## Table Of Contents
-  -[Description](#discriptionOfProject)
-  -[Installation](#installationOfProject)
-  -[Usage](#usageOfProject)
-  -[License](#licenseOfProject)
-  -[Test](#testOfProject)
-  -[Issues](#issuesOfProject)
-  -[Contributors](#contributorsOfProject)
+  - [Description](#discriptionOfProject)
+  - [Installation](#installationOfProject)
+  - [Usage](#usageOfProject)
+  - [License](#licenseOfProject)
+  - [Test](#testOfProject)
+  - [Issues](#issuesOfProject)
+  - [Contributors](#contributorsOfProject)
     
     
     
@@ -30,7 +30,7 @@
   This application is covered by the Open license.
     
 ## Test
-  sadf
+  sdf
     
 ## Issues
   sadf
@@ -42,5 +42,5 @@
   sadf
     
 # Email
-  sadf
+  asdf
   
