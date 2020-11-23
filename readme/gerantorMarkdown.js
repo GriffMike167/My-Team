@@ -32,4 +32,4 @@ function generateMarkdown(answers) {
   `;
   };
   
-  module.exports = generateMarkdown;
+  export default generateMarkdown;
