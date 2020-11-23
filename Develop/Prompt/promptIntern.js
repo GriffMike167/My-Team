@@ -1,7 +1,7 @@
-const Intern = require("./lib/Intern");
+const Intern = require("../lib/Intern");
 const inquirer = require("inquirer");
 const { selectNewTeamMember } = require("./selectNewTeamMember");
-const { employeeInfor, employees } = require("./app");
+const { employeeInfor, employees } = require("../app");
 
 function promptIntern() {
     let newPrompt = [];

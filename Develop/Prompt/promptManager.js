@@ -1,7 +1,7 @@
-const Manager = require("./lib/Manager");
+const Manager = require("../lib/Manager");
 const inquirer = require("inquirer");
 const { selectNewTeamMember } = require("./selectNewTeamMember");
-const { employeeInfor, employees } = require("./app");
+const { employeeInfor, employees } = require("../app");
 
 function promptManager() {
     let newPrompt = [];
