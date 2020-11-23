@@ -22,4 +22,4 @@ function promptIntern() {
             return selectNewTeamMember(employees);
         });
 
-}
+};

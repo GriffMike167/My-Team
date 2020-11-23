@@ -3,7 +3,8 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const { promptEngineer } = require("./promptEngineer");
-const { promptIntern, promptManager } = require("./app");
+const { promptIntern } = require("./promptIntern");
+const { promptManager } = require("./promptManager");
 
 function selectNewTeamMember(employees) {
     return inquirer.prompt([
@@ -19,4 +20,6 @@ function selectNewTeamMember(employees) {
         else if (role === "Manager") { return promptManager(employees); }
         else { return employees; }
     });
-}
+};
+
+module.exports = selectNewTeamMember();

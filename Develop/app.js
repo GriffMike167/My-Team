@@ -1,3 +1,6 @@
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -8,15 +11,10 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 const NumberPrompt = require("inquirer/lib/prompts/number");
 const { type } = require("os");
-const { selectNewTeamMember } = require("./selectNewTeamMember");
-const { promptIntern } = require("./promptIntern");
-const { promptManager } = require("./promptManager");
-const { promptEngineer }  = require("./promptEngineer");
 
 
 const role = 'Manager';
 const employees = [];
-exports.employees = employees;
 
 
 const employeeInfor = [
@@ -37,12 +35,92 @@ const employeeInfor = [
 
     }
 ];
+
+const promptManager = () => {
+    let newPrompt = [];
+    console.log (
+        `
+          ------------------ 
+          Add a Team Manager
+          ------------------
+        `);
+        newPrompt = employeeInfor.concat({
+            type: "input",
+            name: "officeNumber",
+            message: "Please enter office number",
+
+        })
+        return inquirer.prompt(newPrompt)
+        .then (({name, id, email, officeNumber}) => {
+            employees.push(new Manager(name, id, email, officeNumber));
+            return selectNewTeamMember(employees)});
+        
+    
+};
+
+const promptIntern = () => {
+    let newPrompt = [];
+    console.log (
+        `
+          ----------------- 
+          Add a Team Intern
+          -----------------
+        `);
+        newPrompt = employeeInfor.concat({
+            type: "input",
+            name: "school",
+            message: "Please enter school name",
+
+        })
+        return inquirer.prompt(newPrompt)
+        .then (({name, id, email, school}) => {
+            employees.push(new Intern(name, id, email, school));
+            return selectNewTeamMember(employees)});
+
+};
+const promptEngineer = () => {
+    let newPrompt = [];
+    console.log (
+        `
+          -------------------- 
+          Add a Team Engineeer
+          --------------------
+        `);
+        newPrompt = employeeInfor.concat({
+            type: "input",
+            name: "github",
+            message: "Please enter Github",
+
+        });
+        return inquirer.prompt(newPrompt)
+        .then (({name, id, email,github}) => {
+            employees.push(new Engineer (name, id, email, email,github));
+            return selectNewTeamMember(employees)});
+        
+    
+};
+
+const selectNewTeamMember = (employees) => {
+    return inquirer.prompt([
+        {
+    type: "list",
+    name: "role",
+    message: "Which postion are you adding?",
+    choices: [Engineer, Intern, Manager, 'None']
+        }      
+    ]).then(({role}) => {
+        if (role === 'Engineer'){return promptEngineer(employees);}
+            else if (role === "Intern") {return promptIntern(employees);}
+            else if (role === "Manager"){return promptManager(employees);}
+            else {return employees;}
+    })}
+return selectNewTeamMember();
 // exports.employeeInfor = employeeInfor;
-exports.promptManager = promptManager;
-exports.promptEngineer = promptEngineer;
-exports.promptIntern = promptIntern;
-exports.selectNewTeamMember = selectNewTeamMember;
-// return selectNewTeamMember();
+// exports.promptManager = promptManager;
+// exports.promptEngineer = promptEngineer;
+// exports.promptIntern = promptIntern;
+// exports.selectNewTeamMember = selectNewTeamMember;
+
 
 
     
