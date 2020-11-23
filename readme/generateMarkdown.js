@@ -12,22 +12,22 @@ function generateMarkdown(answers) {
       - [Test](#testOfProject)
       - [Issues](#issuesOfProject)
       - [Contributors](#contributorsOfProject)
-    ##Instalation
+    ## Installation
     ${answers.instalationOfProject}
-    ##Usage
+    ## Usage
     ${answers.usageOfProject}
-    ##License
+    ## License
     ${answers.licenseOfProject}
     This apllication is covered by the ${answers.licenseOfProject} license.
-    ##Test
+    ## Test
     ${answers.testOfProject}
-    ##Issues
+    ## Issues
     ${answers.issuesOfProject}
-    ##Contributors
+    ## Contributors
     ${answers.contributorsOfProject}
-    #Github
+    # Github
     ${answers.githubUsername}
-    #Email
+    # Email
     ${answers.Email}
   `;
   };

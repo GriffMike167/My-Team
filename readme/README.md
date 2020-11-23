@@ -1,5 +1,5 @@
 
-    <h1 align="center">sdaf</h1>
+    <h1 align="center">sadf</h1>
     ## Description
     asdf
     ## Table Of Contents
@@ -10,21 +10,21 @@
       - [Test](#testOfProject)
       - [Issues](#issuesOfProject)
       - [Contributors](#contributorsOfProject)
-    ##Instalation
+    ## Installation
     undefined
-    ##Usage
+    ## Usage
     asdf
-    ##License
+    ## License
     Open
     This apllication is covered by the Open license.
-    ##Test
-    asdf
-    ##Issues
+    ## Test
     sadf
-    ##Contributors
+    ## Issues
+    sadf
+    ## Contributors
     asdf
-    #Github
-    asdf
-    #Email
-    asdf
+    # Github
+    sadf
+    # Email
+    sadf
   
