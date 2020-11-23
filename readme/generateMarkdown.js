@@ -13,7 +13,7 @@ function generateMarkdown(answers) {
       - [Issues](#issuesOfProject)
       - [Contributors](#contributorsOfProject)
     ## Installation
-    ${answers.instalationOfProject}
+    ${answers.installationOfProject}
     ## Usage
     ${answers.usageOfProject}
     ## License
