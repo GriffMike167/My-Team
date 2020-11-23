@@ -40,10 +40,10 @@ function generateMarkdown(answers) {
 ## Contributors
   ${answers.contributorsOfProject}
     
-# Github
+## Github
   ${answers.githubUsername}
     
-# Email
+## Email
   ${answers.Email}
   `;
   };
