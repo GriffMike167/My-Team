@@ -5,7 +5,7 @@
 ## Description
    A quick and easy way for a Manager to keep track of important information at their finger tips.
     
-    
+<img src="MyTeam2.png" alt="My Team">     
     
 ## Table Of Contents
   - [Description](#discriptionOfProject)
