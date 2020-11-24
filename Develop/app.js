@@ -111,16 +111,16 @@ const selectNewTeamMember = (employees) => {
     choices: [Engineer, Intern, Manager, 'None']
         }      
     ]).then(({role}) => {
-        if (role === 'Engineer'){return promptEngineer(employees);}
+        if (role === "Manager"){return promptManager(employees);}
             else if (role === "Intern") {return promptIntern(employees);}
-            else if (role === "Manager"){return promptManager(employees);}
+            else if (role === 'Engineer'){return promptEngineer(employees);}
             else {return employees;}
     });
 };
 
 async function init(){
     try {
-        const answer = await promptEngineer(); promptManager(); promptIntern()
+        const answer = await  promptManager(); promptIntern(); promptEngineer();
         const promptAnswers = render(answer);
         await fs.writeFileSync('team.html', promptAnswers)
         console.log('successfully wrote to html')
