@@ -1,9 +1,9 @@
 
-  <h1 align="center">asdf</h1>
+  <h1 align="center">Who's Team, My Team</h1>
     
     
 ## Description
-   asdf
+   A quick and easy way for a Manager to keep track of important information at their finger tips.
     
     
     
@@ -19,28 +19,28 @@
     
     
 ## Installation
-  sadf
+  I installed inquirer to produce this.
     
 ## Usage
-  sadf
+  Stream line employees information that is relevant to anyone working on a team together.
     
 ## License
-  Open
+  MIT
     
-  This application is covered by the Open license.
+  This application is covered by the MIT license.
     
 ## Test
-  sdf
+  Yes, test for proper written classes and inline classes.
     
 ## Issues
-  sadf
+  N/A
     
 ## Contributors
-  sdf
+  Just myself, Michael Griffith
     
-# Github
-  sadf
+## Github
+  GriffMike167
     
-# Email
-  asdf
+## Email
+  griffithcmichael@gmail.com
   
