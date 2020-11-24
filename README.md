@@ -5,7 +5,7 @@
 ## Description
    A quick and easy way for a Manager to keep track of important information at their finger tips.
     
-<img src="../assets/MyTeam2.png" alt="My Team">     
+<img src="MyTeam2.png" alt="My Team">     
     
 ## Table Of Contents
   - [Description](#discriptionOfProject)
@@ -16,7 +16,7 @@
   - [Issues](#issuesOfProject)
   - [Contributors](#contributorsOfProject)
     
-<img src="../assets/MyTeam.png" alt="My Team">    
+<img src="MyTeam.png" alt="My Team">    
     
 ## Installation
   I installed inquirer to produce this.
