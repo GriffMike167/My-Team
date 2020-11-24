@@ -16,7 +16,7 @@
   - [Issues](#issuesOfProject)
   - [Contributors](#contributorsOfProject)
     
-    
+<img src="./assests/MyTeam.png" alt="My Team">    
     
 ## Installation
   I installed inquirer to produce this.
