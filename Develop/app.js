@@ -4,6 +4,7 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const htmlRenderer = ("./lib/htmlRenderer")
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
@@ -49,7 +50,7 @@ const promptManager = () => {
             name: "officeNumber",
             message: "Please enter office number",
 
-        })
+        });
         return inquirer.prompt(newPrompt)
         .then (({name, id, email, officeNumber}) => {
             employees.push(new Manager(name, id, email, officeNumber));
@@ -95,10 +96,11 @@ const promptEngineer = () => {
         return inquirer.prompt(newPrompt)
         .then (({name, id, email,github}) => {
             employees.push(new Engineer (name, id, email, email,github));
+            
             return selectNewTeamMember(employees)});
-        
+             
     
-};
+};  
 
 const selectNewTeamMember = (employees) => {
     return inquirer.prompt([
@@ -113,8 +115,26 @@ const selectNewTeamMember = (employees) => {
             else if (role === "Intern") {return promptIntern(employees);}
             else if (role === "Manager"){return promptManager(employees);}
             else {return employees;}
-    })}
-return selectNewTeamMember();
+    });
+};
+
+async function init(){
+    try {
+        const answer = await promptEngineer(); promptManager(); promptIntern()
+        const promptAnswers = render(answer);
+        await fs.writeFileSync('team.html', promptAnswers)
+        console.log('successfully wrote to html')
+    }catch(err){
+        console.log(err);
+    }
+}
+init();
+
+
+// moldule.exports = employees;
+
+
+// return selectNewTeamMember();
 // exports.employeeInfor = employeeInfor;
 // exports.promptManager = promptManager;
 // exports.promptEngineer = promptEngineer;
