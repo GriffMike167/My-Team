@@ -18,7 +18,7 @@ function promptEngineer() {
     });
     return inquirer.prompt(newPrompt)
         .then(({ name, id, email, github }) => {
-            employees.push(new Engineer(name, id, email, email, github));
+            employees.push(new Engineer(name, id, email, github));
             return selectNewTeamMember(employees);
         });
 
